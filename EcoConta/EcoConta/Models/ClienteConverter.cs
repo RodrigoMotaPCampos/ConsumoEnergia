@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ProjetoConsumoEnergiaWinForms.Models
+namespace EcoConta.Models
 {
     public class ClienteConverter : JsonConverter<Cliente>
     {
@@ -24,7 +24,7 @@ namespace ProjetoConsumoEnergiaWinForms.Models
 
         public override void Write(Utf8JsonWriter writer, Cliente value, JsonSerializerOptions options)
         {
-            JsonSerializer.Serialize(writer, (object)value, value.GetType(), options);
+            JsonSerializer.Serialize(writer, value, value.GetType(), options);
         }
     }
 }

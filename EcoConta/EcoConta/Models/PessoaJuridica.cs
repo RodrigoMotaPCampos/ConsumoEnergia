@@ -1,5 +1,4 @@
-
-namespace ProjetoConsumoEnergiaWinForms.Models
+namespace EcoConta.Models
 {
     public class PessoaJuridica : Cliente
     {

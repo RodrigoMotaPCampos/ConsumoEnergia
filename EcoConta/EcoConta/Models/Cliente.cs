@@ -1,7 +1,7 @@
 
 using System.Collections.Generic;
 
-namespace ProjetoConsumoEnergiaWinForms.Models
+namespace EcoConta.Models
 {
     public abstract class Cliente
     {

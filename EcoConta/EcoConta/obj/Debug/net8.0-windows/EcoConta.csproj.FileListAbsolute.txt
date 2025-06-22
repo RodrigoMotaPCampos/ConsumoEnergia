@@ -1,0 +1,13 @@
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.Form1.resources
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.csproj.GenerateResource.cache
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.GeneratedMSBuildEditorConfig.editorconfig
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.AssemblyInfoInputs.cache
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.AssemblyInfo.cs
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.csproj.CoreCompileInputs.cache
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.sourcelink.json
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.CadastroCliente.resources
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.Form3.resources
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.Form4.resources
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\ProjetoConsumoEnergiaWinForms.Forms.FormCadastroCliente.resources
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\ProjetoConsumoEnergiaWinForms.Forms.FormPrincipal.resources
+C:\poo\Ecoconta\EcoConta\EcoConta\obj\Debug\net8.0-windows\EcoConta.Properties.Resources.resources

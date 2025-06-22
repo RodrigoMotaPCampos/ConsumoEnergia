@@ -1,8 +1,9 @@
 
 using System;
 using System.Windows.Forms;
+using EcoConta;
 
-namespace ProjetoConsumoEnergiaWinForms
+namespace EcoConta
 {
     static class Program
     {
@@ -11,7 +12,7 @@ namespace ProjetoConsumoEnergiaWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.FormPrincipal());
+            Application.Run(new Form1());
         }
     }
 }

@@ -1,5 +1,4 @@
-
-namespace ProjetoConsumoEnergiaWinForms.Models
+namespace EcoConta.Models
 {
     public class ContaEnergia
     {
@@ -14,7 +13,7 @@ namespace ProjetoConsumoEnergiaWinForms.Models
         {
             double tarifa = Tipo == TipoContaEnum.Residencial ? 0.40 : 0.35;
             double consumo = CalcularConsumo();
-            return (consumo * tarifa) + 9.25;
+            return consumo * tarifa + 9.25;
         }
 
         public double CalcularValorTotal()
