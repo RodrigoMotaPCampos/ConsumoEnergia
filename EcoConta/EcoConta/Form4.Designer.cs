@@ -30,9 +30,8 @@
         {
             txtDocumento = new TextBox();
             btnBuscar_Click = new Button();
-            txtResultado = new DataGridView();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)txtResultado).BeginInit();
+            txtResultado = new TextBox();
             SuspendLayout();
             // 
             // txtDocumento
@@ -57,19 +56,6 @@
             btnBuscar_Click.UseVisualStyleBackColor = false;
             btnBuscar_Click.Click += btnBuscar_Click_Click;
             // 
-            // txtResultado
-            // 
-            txtResultado.AllowUserToOrderColumns = true;
-            txtResultado.BackgroundColor = SystemColors.Control;
-            txtResultado.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            txtResultado.GridColor = Color.Cyan;
-            txtResultado.Location = new Point(214, 148);
-            txtResultado.Name = "txtResultado";
-            txtResultado.RowHeadersWidth = 51;
-            txtResultado.Size = new Size(331, 222);
-            txtResultado.TabIndex = 2;
-            txtResultado.CellContentClick += txtResultado_CellContentClick;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -81,6 +67,15 @@
             label1.TabIndex = 3;
             label1.Text = "Consultar Conta";
             // 
+            // txtResultado
+            // 
+            txtResultado.Location = new Point(214, 147);
+            txtResultado.Multiline = true;
+            txtResultado.Name = "txtResultado";
+            txtResultado.Size = new Size(331, 214);
+            txtResultado.TabIndex = 4;
+            txtResultado.TextChanged += txtResultado_TextChanged;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -89,13 +84,12 @@
             BackgroundImage = Properties.Resources.fundo;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(label1);
             Controls.Add(txtResultado);
+            Controls.Add(label1);
             Controls.Add(btnBuscar_Click);
             Controls.Add(txtDocumento);
             Name = "Form4";
             Text = "Form4";
-            ((System.ComponentModel.ISupportInitialize)txtResultado).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -104,7 +98,7 @@
 
         private TextBox txtDocumento;
         private Button btnBuscar_Click;
-        private DataGridView txtResultado;
         private Label label1;
+        private TextBox txtResultado;
     }
 }

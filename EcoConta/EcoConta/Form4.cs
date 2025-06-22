@@ -47,7 +47,7 @@ namespace EcoConta
 
         }
 
-        private void txtResultado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtResultado_TextChanged(object sender, EventArgs e)
         {
 
         }
