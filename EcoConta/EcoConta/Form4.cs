@@ -45,9 +45,9 @@ namespace EcoConta
                 if (documento == doc)
                 {
                     clienteEncontrado = true;
-                    txtResultado.AppendText($"Cliente: {nome}\n");
-                    txtResultado.AppendText($"Tipo: {tipoPessoa}\n");
-                    txtResultado.AppendText($"Documento: {documento}\n");
+                    txtResultado.AppendText($"Cliente: {nome}\n |");
+                    txtResultado.AppendText($"Tipo: {tipoPessoa}\n |");
+                    txtResultado.AppendText($"Documento: {documento}\n |");
                     txtResultado.AppendText("----------------------------------\n\n");
                     break;
                 }
@@ -94,7 +94,7 @@ namespace EcoConta
                 };
 
                 // Exibe os dados calculados
-                txtResultado.AppendText($"Tipo de Conta: {conta.Tipo}\n");
+                txtResultado.AppendText($"| Tipo de Conta: {conta.Tipo}\n");
                 txtResultado.AppendText($"Leitura Anterior: {conta.LeituraAnterior} kWh\n");
                 txtResultado.AppendText($"Leitura Atual: {conta.LeituraAtual} kWh\n");
                 txtResultado.AppendText($"Consumo: {conta.CalcularConsumo()} kWh\n");
