@@ -72,7 +72,7 @@
             txtResultado.Location = new Point(214, 147);
             txtResultado.Multiline = true;
             txtResultado.Name = "txtResultado";
-            txtResultado.Size = new Size(331, 214);
+            txtResultado.Size = new Size(331, 278);
             txtResultado.TabIndex = 4;
             txtResultado.TextChanged += txtResultado_TextChanged;
             // 
