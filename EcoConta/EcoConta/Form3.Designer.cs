@@ -35,6 +35,9 @@
             txtDocumento = new TextBox();
             btnSalvar_Click = new Button();
             label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // txtAnterior
@@ -43,7 +46,6 @@
             txtAnterior.Name = "txtAnterior";
             txtAnterior.Size = new Size(197, 27);
             txtAnterior.TabIndex = 0;
-            txtAnterior.Text = "Leitura Anterior";
             txtAnterior.TextAlign = HorizontalAlignment.Center;
             txtAnterior.TextChanged += txtAnterior_TextChanged;
             // 
@@ -53,7 +55,6 @@
             txtAtual.Name = "txtAtual";
             txtAtual.Size = new Size(197, 27);
             txtAtual.TabIndex = 1;
-            txtAtual.Text = "Leitura Atual";
             txtAtual.TextAlign = HorizontalAlignment.Center;
             txtAtual.TextChanged += txtAtual_TextChanged;
             // 
@@ -89,7 +90,6 @@
             txtDocumento.Name = "txtDocumento";
             txtDocumento.Size = new Size(197, 27);
             txtDocumento.TabIndex = 4;
-            txtDocumento.Text = "Insira seu Documento";
             txtDocumento.TextAlign = HorizontalAlignment.Center;
             txtDocumento.TextChanged += txtDocumento_TextChanged;
             // 
@@ -116,6 +116,36 @@
             label1.TabIndex = 6;
             label1.Text = "Cadastro de Conta";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(151, 120);
+            label2.Name = "label2";
+            label2.Size = new Size(115, 20);
+            label2.TabIndex = 7;
+            label2.Text = "Leitura Anterior:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Location = new Point(170, 178);
+            label3.Name = "label3";
+            label3.Size = new Size(96, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Leitura Atual:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Location = new Point(170, 231);
+            label4.Name = "label4";
+            label4.Size = new Size(90, 20);
+            label4.TabIndex = 8;
+            label4.Text = "Documento:";
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -123,6 +153,9 @@
             BackgroundImage = Properties.Resources.fundo;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnSalvar_Click);
             Controls.Add(txtDocumento);
@@ -145,5 +178,8 @@
         private TextBox txtDocumento;
         private Button btnSalvar_Click;
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }

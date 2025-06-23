@@ -32,6 +32,7 @@
             btnBuscar_Click = new Button();
             label1 = new Label();
             txtResultado = new TextBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // txtDocumento
@@ -40,7 +41,6 @@
             txtDocumento.Name = "txtDocumento";
             txtDocumento.Size = new Size(183, 27);
             txtDocumento.TabIndex = 0;
-            txtDocumento.Text = "Insira seu Documento";
             txtDocumento.TextAlign = HorizontalAlignment.Center;
             txtDocumento.TextChanged += txtDocumento_TextChanged;
             // 
@@ -76,6 +76,16 @@
             txtResultado.TabIndex = 4;
             txtResultado.TextChanged += txtResultado_TextChanged;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(107, 79);
+            label2.Name = "label2";
+            label2.Size = new Size(90, 20);
+            label2.TabIndex = 5;
+            label2.Text = "Documento:";
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -84,6 +94,7 @@
             BackgroundImage = Properties.Resources.fundo;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(label2);
             Controls.Add(txtResultado);
             Controls.Add(label1);
             Controls.Add(btnBuscar_Click);
@@ -100,5 +111,6 @@
         private Button btnBuscar_Click;
         private Label label1;
         private TextBox txtResultado;
+        private Label label2;
     }
 }

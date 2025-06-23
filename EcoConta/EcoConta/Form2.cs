@@ -40,6 +40,7 @@ namespace EcoConta
                 Form1.clientes.Add(new PessoaJuridica(nome, documento));
 
             MessageBox.Show("Cliente cadastrado com sucesso!");
+            
             this.Close();
 
         }
