@@ -34,6 +34,8 @@
             btnSalvar_Click = new Button();
             rbtnFisica = new RadioButton();
             rbtnJuridica = new RadioButton();
+            label2 = new Label();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -53,7 +55,6 @@
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(196, 27);
             txtNome.TabIndex = 1;
-            txtNome.Text = "Insira seu Nome";
             txtNome.TextChanged += txtNome_TextChanged;
             // 
             // txtDocumento
@@ -62,7 +63,6 @@
             txtDocumento.Name = "txtDocumento";
             txtDocumento.Size = new Size(196, 27);
             txtDocumento.TabIndex = 2;
-            txtDocumento.Text = "Insira seu Documento";
             txtDocumento.TextChanged += txtDocumento_TextChanged;
             // 
             // btnSalvar_Click
@@ -103,6 +103,26 @@
             rbtnJuridica.UseVisualStyleBackColor = false;
             rbtnJuridica.CheckedChanged += rbtnJuridica_CheckedChanged;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Location = new Point(193, 209);
+            label2.Name = "label2";
+            label2.Size = new Size(90, 20);
+            label2.TabIndex = 6;
+            label2.Text = "Documento:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Location = new Point(230, 134);
+            label3.Name = "label3";
+            label3.Size = new Size(53, 20);
+            label3.TabIndex = 6;
+            label3.Text = "Nome:";
+            // 
             // CadastroCliente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -110,6 +130,8 @@
             BackgroundImage = Properties.Resources.fundo;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(rbtnJuridica);
             Controls.Add(rbtnFisica);
             Controls.Add(btnSalvar_Click);
@@ -130,5 +152,7 @@
         private Button btnSalvar_Click;
         private RadioButton rbtnFisica;
         private RadioButton rbtnJuridica;
+        private Label label2;
+        private Label label3;
     }
 }
