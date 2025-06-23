@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcoConta")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a09374a32c6ca0acdaed5b9d0dddcc73632fa911")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+65a94722455d41890dea29b337917d924e31c73f")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcoConta")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcoConta")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

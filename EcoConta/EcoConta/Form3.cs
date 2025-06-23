@@ -20,7 +20,7 @@ namespace EcoConta
             string caminhoClientes = "clientes.txt";
             string caminhoContas = "contas.txt";
 
-            // ✔️ Validação do documento (não pode estar vazio e deve conter apenas números)
+            
             if (string.IsNullOrWhiteSpace(doc))
             {
                 MessageBox.Show("Por favor, digite o documento (apenas números).");
@@ -33,7 +33,7 @@ namespace EcoConta
                 return;
             }
 
-            // ✔️ Verificar se o cliente existe
+            
             if (!File.Exists(caminhoClientes))
             {
                 MessageBox.Show("Arquivo de clientes não encontrado.");
@@ -63,7 +63,7 @@ namespace EcoConta
                 return;
             }
 
-            // ✔️ Leitura dos dados da conta (permitindo números reais)
+            
             if (!double.TryParse(txtAnterior.Text.Replace(",", "."),
                 NumberStyles.Any, CultureInfo.InvariantCulture, out double leituraAnterior))
             {
@@ -84,7 +84,7 @@ namespace EcoConta
                 return;
             }
 
-            // ✔️ Definir tipo de conta
+            
             string tipoConta = "";
 
             if (rbtnResidencial.Checked)
@@ -97,17 +97,17 @@ namespace EcoConta
                 return;
             }
 
-            // ✔️ Montar a linha para salvar no arquivo
+            
             string linhaConta = $"{doc};{tipoConta};{leituraAnterior.ToString(CultureInfo.InvariantCulture)};{leituraAtual.ToString(CultureInfo.InvariantCulture)}";
 
-            // ✔️ Gravar no arquivo de contas
+            
             File.AppendAllText(caminhoContas, linhaConta + Environment.NewLine);
 
             MessageBox.Show("Conta cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
-        // Eventos vazios (podem ser removidos se não usar)
+        
         private void txtAnterior_TextChanged(object sender, EventArgs e) { }
         private void txtAtual_TextChanged(object sender, EventArgs e) { }
         private void rbtnResidencial_CheckedChanged(object sender, EventArgs e) { }

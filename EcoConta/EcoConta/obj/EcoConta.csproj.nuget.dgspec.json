@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\poo\\EcoConta\\EcoConta\\EcoConta\\EcoConta.csproj": {}
+    "C:\\poo\\Ecoconta\\EcoConta\\EcoConta\\EcoConta.csproj": {}
   },
   "projects": {
-    "C:\\poo\\EcoConta\\EcoConta\\EcoConta\\EcoConta.csproj": {
+    "C:\\poo\\Ecoconta\\EcoConta\\EcoConta\\EcoConta.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\poo\\EcoConta\\EcoConta\\EcoConta\\EcoConta.csproj",
+        "projectUniqueName": "C:\\poo\\Ecoconta\\EcoConta\\EcoConta\\EcoConta.csproj",
         "projectName": "EcoConta",
-        "projectPath": "C:\\poo\\EcoConta\\EcoConta\\EcoConta\\EcoConta.csproj",
+        "projectPath": "C:\\poo\\Ecoconta\\EcoConta\\EcoConta\\EcoConta.csproj",
         "packagesPath": "C:\\Users\\Gabriel Paiva\\.nuget\\packages\\",
         "outputPath": "C:\\poo\\EcoConta\\EcoConta\\EcoConta\\obj\\",
         "projectStyle": "PackageReference",
