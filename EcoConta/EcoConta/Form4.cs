@@ -21,7 +21,26 @@ namespace EcoConta
 
             txtResultado.Clear();
 
-            // Verifica se clientes.txt existe
+            
+            if (string.IsNullOrWhiteSpace(doc))
+            {
+                MessageBox.Show("Por favor, digite o CPF ou CNPJ.");
+                return;
+            }
+
+            if (!doc.All(char.IsDigit))
+            {
+                MessageBox.Show("O documento deve conter apenas números.");
+                return;
+            }
+
+            if (doc.Length != 11 && doc.Length != 14)
+            {
+                MessageBox.Show("CPF deve ter 11 dígitos e CNPJ 14 dígitos.");
+                return;
+            }
+
+           
             if (!File.Exists(caminhoClientes))
             {
                 MessageBox.Show("Arquivo de clientes não encontrado.");
@@ -32,7 +51,7 @@ namespace EcoConta
             bool clienteEncontrado = false;
             string nome = "", tipoPessoa = "";
 
-            // Procura o cliente
+            
             foreach (string linha in linhasClientes)
             {
                 string[] dados = linha.Split(';');
@@ -45,10 +64,10 @@ namespace EcoConta
                 if (documento == doc)
                 {
                     clienteEncontrado = true;
-                    txtResultado.AppendText($"Cliente: {nome}\n |");
-                    txtResultado.AppendText($"Tipo: {tipoPessoa}\n |");
-                    txtResultado.AppendText($"Documento: {documento}\n |");
-                    txtResultado.AppendText("----------------------------------\n\n");
+                    txtResultado.AppendText($"Cliente: {nome}{Environment.NewLine}");
+                    txtResultado.AppendText($"Tipo: {tipoPessoa}{Environment.NewLine}");
+                    txtResultado.AppendText($"Documento: {doc}{Environment.NewLine}");
+                    txtResultado.AppendText($"----------------------------------{Environment.NewLine}{Environment.NewLine}");
                     break;
                 }
             }
@@ -59,14 +78,14 @@ namespace EcoConta
                 return;
             }
 
-            // Verifica se contas.txt existe
+            
             if (!File.Exists(caminhoContas))
             {
-                txtResultado.AppendText("Nenhuma conta cadastrada ainda.\n");
+                txtResultado.AppendText("Nenhuma conta cadastrada ainda." + Environment.NewLine);
                 return;
             }
 
-            // Busca as contas do cliente
+            
             string[] contas = File.ReadAllLines(caminhoContas);
             bool temConta = false;
 
@@ -78,8 +97,7 @@ namespace EcoConta
                 string documento = dadosConta[0].Trim();
                 if (documento != doc) continue;
 
-                // Cria objeto ContaEnergia
-                ContaEnergia.TipoContaEnum tipo = dadosConta[1].Trim() == "Residencial"
+                var tipo = dadosConta[1].Trim() == "Residencial"
                     ? ContaEnergia.TipoContaEnum.Residencial
                     : ContaEnergia.TipoContaEnum.Comercial;
 
@@ -93,21 +111,21 @@ namespace EcoConta
                     LeituraAtual = leituraAtual
                 };
 
-                // Exibe os dados calculados
-                txtResultado.AppendText($"| Tipo de Conta: {conta.Tipo}\n");
-                txtResultado.AppendText($"Leitura Anterior: {conta.LeituraAnterior} kWh\n");
-                txtResultado.AppendText($"Leitura Atual: {conta.LeituraAtual} kWh\n");
-                txtResultado.AppendText($"Consumo: {conta.CalcularConsumo()} kWh\n");
-                txtResultado.AppendText($"Valor sem imposto: R$ {conta.CalcularValorSemImposto():F2}\n");
-                txtResultado.AppendText($"Valor total com imposto: R$ {conta.CalcularValorTotal():F2}\n");
-                txtResultado.AppendText("----------------------------------\n\n");
+                
+                txtResultado.AppendText($"Tipo de Conta: {conta.Tipo}{Environment.NewLine}");
+                txtResultado.AppendText($"Leitura Anterior: {conta.LeituraAnterior} kWh{Environment.NewLine}");
+                txtResultado.AppendText($"Leitura Atual: {conta.LeituraAtual} kWh{Environment.NewLine}");
+                txtResultado.AppendText($"Consumo: {conta.CalcularConsumo()} kWh{Environment.NewLine}");
+                txtResultado.AppendText($"Valor sem imposto: R$ {conta.CalcularValorSemImposto():F2}{Environment.NewLine}");
+                txtResultado.AppendText($"Valor total com imposto: R$ {conta.CalcularValorTotal():F2}{Environment.NewLine}");
+                txtResultado.AppendText($"----------------------------------{Environment.NewLine}{Environment.NewLine}");
 
                 temConta = true;
             }
 
             if (!temConta)
             {
-                txtResultado.AppendText("Nenhuma conta encontrada para este cliente.\n");
+                txtResultado.AppendText("Nenhuma conta encontrada para este cliente." + Environment.NewLine);
             }
         }
 

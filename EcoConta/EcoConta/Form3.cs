@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows.Forms;
 using EcoConta.Models;
-
 
 namespace EcoConta
 {
@@ -19,51 +14,104 @@ namespace EcoConta
             InitializeComponent();
         }
 
-        private void txtAnterior_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAtual_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnResidencial_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbtnComercial_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDocumento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSalvar_Click_Click(object sender, EventArgs e)
         {
-            string doc = txtDocumento.Text;
-            var cliente = Form1.clientes.Find(c => c.Documento == doc);
+            string doc = txtDocumento.Text.Trim();
+            string caminhoClientes = "clientes.txt";
+            string caminhoContas = "contas.txt";
 
-            if (cliente == null)
+            // ✔️ Validação do documento (não pode estar vazio e deve conter apenas números)
+            if (string.IsNullOrWhiteSpace(doc))
+            {
+                MessageBox.Show("Por favor, digite o documento (apenas números).");
+                return;
+            }
+
+            if (!doc.All(char.IsDigit))
+            {
+                MessageBox.Show("O documento deve conter apenas números.");
+                return;
+            }
+
+            // ✔️ Verificar se o cliente existe
+            if (!File.Exists(caminhoClientes))
+            {
+                MessageBox.Show("Arquivo de clientes não encontrado.");
+                return;
+            }
+
+            string[] linhasClientes = File.ReadAllLines(caminhoClientes);
+            bool clienteEncontrado = false;
+
+            foreach (string linha in linhasClientes)
+            {
+                string[] dados = linha.Split(';');
+                if (dados.Length < 3) continue;
+
+                string documento = dados[2].Trim();
+
+                if (documento == doc)
+                {
+                    clienteEncontrado = true;
+                    break;
+                }
+            }
+
+            if (!clienteEncontrado)
             {
                 MessageBox.Show("Cliente não encontrado.");
                 return;
             }
 
-            ContaEnergia.TipoContaEnum tipo = rbtnResidencial.Checked ? ContaEnergia.TipoContaEnum.Residencial : ContaEnergia.TipoContaEnum.Comercial;
-            double anterior = double.Parse(txtAnterior.Text);
-            double atual = double.Parse(txtAtual.Text);
+            // ✔️ Leitura dos dados da conta (permitindo números reais)
+            if (!double.TryParse(txtAnterior.Text.Replace(",", "."),
+                NumberStyles.Any, CultureInfo.InvariantCulture, out double leituraAnterior))
+            {
+                MessageBox.Show("Digite um valor válido para Leitura Anterior (use números).");
+                return;
+            }
 
-            cliente.Contas.Add(new ContaEnergia { Tipo = tipo, LeituraAnterior = anterior, LeituraAtual = atual });
+            if (!double.TryParse(txtAtual.Text.Replace(",", "."),
+                NumberStyles.Any, CultureInfo.InvariantCulture, out double leituraAtual))
+            {
+                MessageBox.Show("Digite um valor válido para Leitura Atual (use números).");
+                return;
+            }
 
-            MessageBox.Show("Conta adicionada com sucesso!");
+            if (leituraAtual < leituraAnterior)
+            {
+                MessageBox.Show("A Leitura Atual não pode ser menor que a Leitura Anterior.");
+                return;
+            }
+
+            // ✔️ Definir tipo de conta
+            string tipoConta = "";
+
+            if (rbtnResidencial.Checked)
+                tipoConta = "Residencial";
+            else if (rbtnComercial.Checked)
+                tipoConta = "Comercial";
+            else
+            {
+                MessageBox.Show("Selecione o tipo de conta (Residencial ou Comercial).");
+                return;
+            }
+
+            // ✔️ Montar a linha para salvar no arquivo
+            string linhaConta = $"{doc};{tipoConta};{leituraAnterior.ToString(CultureInfo.InvariantCulture)};{leituraAtual.ToString(CultureInfo.InvariantCulture)}";
+
+            // ✔️ Gravar no arquivo de contas
+            File.AppendAllText(caminhoContas, linhaConta + Environment.NewLine);
+
+            MessageBox.Show("Conta cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
-
         }
+
+        // Eventos vazios (podem ser removidos se não usar)
+        private void txtAnterior_TextChanged(object sender, EventArgs e) { }
+        private void txtAtual_TextChanged(object sender, EventArgs e) { }
+        private void rbtnResidencial_CheckedChanged(object sender, EventArgs e) { }
+        private void rbtnComercial_CheckedChanged(object sender, EventArgs e) { }
+        private void txtDocumento_TextChanged(object sender, EventArgs e) { }
     }
 }
